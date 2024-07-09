@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face{
+    font-family: "TitanOne";
+    src:local("TitanOne-Regular"),
+    url('./assets//fonts/TitanOne-Regular.ttf') 
+}
+@font-face{
+    font-family: "Lexend";
+    src:local("Lexend-Regular"),
+    url('./assets//fonts/Lexend-Regular.ttf') 
+}
+
+
+html {
+    scroll-behavior: smooth;
+    font-family: Lexend, sans-serif;
+}
+
+div[id] {
+    scroll-margin-top: 90px
+}
+
+.hover-link {
+    display: inline-block;
+    position: relative;
+    color: #000;
+    font-weight: 800;
+    font-family: Lexend;
+    text-decoration: none;
+}
+.hover-link:hover {
+    color:#333
+}
+.hover-link:after {
+    content: "";
+    display: block;
+    margin: auto;
+    height: 2px;
+    width: 0px;
+    transition: all .8s;
+}
+.hover-link:hover:after {
+    width: 100%;
+    background: #333;
+}
+
+.available-in {
+    display: flex;
+    margin-top: 20px;
+}
+
+.container-cards {
+    display: grid;
+    font-weight: bold;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    gap: 1rem;
+}
+.title-card {
+    font-size: 16px;
+    color: white;
+    text-transform: uppercase
+}
+.description-card {
+    font-size: 12px;
+    color: white;
+}
+@media (max-width: 380px) {
+    .available-in {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+@media (max-width: 590px) {
+    .container-cards {
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media (max-width: 768px) {
+    .title-card {
+        font-size: 14px;
+    }
+    .description-card {
+        font-size: 10px;
+    }
+
+}
+@media (max-width: 1024px) {
+    .container-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+
+.parallax-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 80vh; /* Tamaño completo de la ventana */
+    width: 100%;
+    overflow: hidden;
+    background: #f0f0f0; /* Fondo de color de respaldo */
+    display: flex;
+    flex-direction: column;
+}
+
+.parallax {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 250px; /* Tamaño completo de la ventana */
+    width: 100%;
+    overflow: hidden;
+    background: #f0f0f0; /* Fondo de color de respaldo */
+    display: flex;
+    flex-direction: column;
+}
+  
+/* Estilos de fondo de parallax */
+.parallax-img1 {
+    background-image: url('https://i.imgur.com/lyb4OMG.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+.parallax-img2 {
+    background-image: url('https://i.imgur.com/oOEvRRD.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+.parallax-img3 {
+    background-image: url('https://i.imgur.com/d582Kl1.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+.parallax-img4 {
+    background-image: url('https://i.imgur.com/lyb4OMG.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
