@@ -7,7 +7,7 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "features", "howitwork", "opinions"];
+      const sections = ["home", "features", "howitwork", "reviews"];
       const scrollPosition = window.scrollY + window.innerHeight / 2;
       
       sections.forEach(sectionId => {
@@ -28,7 +28,7 @@ function App() {
     {name: "Inicio", href: "home"},
     {name: "Características", href: "features"},
     {name: "¿Cómo funciona?", href: "howitwork"},
-    {name: "Opiniones", href: "opinions"},
+    {name: "Opiniones", href: "reviews"},
   ];
 
   const itemsFeatures = [
@@ -82,10 +82,10 @@ function App() {
         maxWidth="full"
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
-        className="text-primarytext flex w-full items-center mx-auto"
+        className='bg-white'
       >
-        <div className='flex w-full items-center justify-center'>
-          <div className='flex w-full max-w-6xl'>
+        <div className='flex w-full justify-center'>
+          <div className='flex w-full max-w-6xl px-0 lg:px-6 '>
             <NavbarContent className="md:hidden" justify="start">
               <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
             </NavbarContent>
@@ -93,7 +93,7 @@ function App() {
               <NavbarBrand>
                 <Image
                   isBlurred
-                  width={170}
+                  width={120}
                   src="https://i.imgur.com/tSSFQFd.png" 
                   alt="NextUI Album Cover"
                   className=" md:flex hidden rounded-none"
@@ -105,18 +105,18 @@ function App() {
               {menuItems.map((item, index) => (
                 <NavbarItem key={index}>
                   <Link 
-                    className={activeSection === item.href ? "text-primary font-bold border-b-3 border-b-primary" : "hover-link"} href={`#${item.href}`}
+                    className={activeSection === item.href ? "text-black font-bold border-b-3 border-b-black text-sm" : "hover-link"} href={`#${item.href}`}
                   >
                     {item.name}
                   </Link>
                 </NavbarItem>
               ))}
             </NavbarContent>
-            <NavbarMenu className="bg-colornavbar">
+            <NavbarMenu>
               {menuItems.map((item, index) => (
                 <NavbarMenuItem key={`${item}-${index}`}>
                   <Link
-                    className={activeSection === item.href ? "text-primary font-bold border-b-3 border-b-primary" : "hover-link"}
+                    className={activeSection === item.href ? "text-black font-bold border-b-3 border-b-black text-sm" : "hover-link"}
                     href={`#${item.href}`}
                     size="lg"
                     onClick={() => setIsMenuOpen(false)}
@@ -127,8 +127,9 @@ function App() {
               ))}
             </NavbarMenu>
           </div>
-
         </div>
+
+
       </Navbar>
       <div className="parallax-container parallax-img1">
         <div className='flex flex-col w-full h-full items-center justify-center max-w-6xl px-4 sm:px-8' id='home'>
@@ -217,105 +218,53 @@ function App() {
         </div>
       </div>
 
-      <div className='flex justify-center h-[50px] border-t-[1px] border-gray-200'>
-        <div className='flex w-full h-full items-center justify-between max-w-6xl px-4 sm:px-8'>
+      <div className="parallax parallax-img4">
+        <div className='flex flex-col w-full h-full items-center justify-center max-w-6xl px-4 sm:px-8'>
+          <p className='font-titanOne text-center text-xl sm:text-2xl text-white'>
+            5. Tambien puedes dejar comentarios en las fotos que te gusten para interactuar con otros usuarios.
+          </p>
+        </div>
+      </div>
+
+      <div className='flex justify-center py-3 mt-3 bg-black bg-opacity-85'>
+        <div className='flex flex-col-reverse sm:flex-row w-full h-full items-center justify-between max-w-6xl px-4 sm:px-8'>
           <Image
             isBlurred
             width={80}
             src="https://i.imgur.com/tSSFQFd.png" 
             alt="NextUI Album Cover"
-            className="rounded-none"
+            className=" hidden rounded-none sm:flex"
           />
-          <p className='text-[10px] text-gray-400'>&copy; 2024 Zoobook. Todos los derechos reservados.</p>
+          <p className='text-[10px] text-gray-300 text-center'>&copy; 2024 Zoobook. Todos los derechos reservados.</p>
           <div className='flex'>
+            <div className='h-[25px] w-[25px] shadow-lg rounded-full cursor-pointer m-2'>
               <Image
                 width={25}
                 src="https://i.imgur.com/WYEmPJz.png"
                 alt="NextUI Album Cover"
-                className="rounded-full object-cover shadow-2xl cursor-pointer ml-2"
+                className="rounded-full object-cover"
               />
+            </div>
+            <div className='h-[25px] w-[25px] shadow-lg rounded-full cursor-pointer m-2'>
               <Image
                 width={25}
                 src="https://i.imgur.com/090Z4DP.png" 
                 alt="NextUI Album Cover"
-                className="rounded-full object-cover shadow-2xl cursor-pointer ml-2"
+                className="rounded-full object-cover"
               />
+            </div>
+            <div className='h-[25px] w-[25px] shadow-lg rounded-full cursor-pointer m-2'>
               <Image
                 width={25}
                 src="https://i.imgur.com/aznln4x.png" 
                 alt="NextUI Album Cover"
-                className="rounded-full object-cover shadow-2xl cursor-pointer ml-2"
+                className="rounded-full object-cover"
               />
+            </div>
           </div>
         </div>
       </div>
-{/* 
-      <div className='w-full h-auto'>
-        <div className='flex flex-col w-full items-center mx-auto max-w-6xl'>
-          <div className='flex flex-col w-full px-6 my-10' id='features'>
-            <div className='flex w-full flex-col md:flex-row items-start md:justify-between md:items-center mb-5'>
-              <p className='text-2xl sm:text-3xl font-titanOne mb-3 md:mb-0'>Características Principales</p>
-              <p className='text-xs text-start md:text-end max-w-full md:max-w-64'>Estas son las cualidades más significativas y distintivas que definen nuestro producto.</p>
-            </div>
-            <div className='container-cards'>
-              {
-                itemsFeatures.map((item:any) => (
-                  <div className='flex h-48 w-full items-end'>
-                    <div className={`flex relative w-full h-36 rounded-xl bg-${item.color}`}>
-                      <div className='flex flex-col justify-center w-1/2 h-full ml-5'>
-                        <p className="title-card">{item.title}</p>
-                        <small className="description-card">{item.description}</small>
-                      </div>
-                      <div className='absolute w-1/2 h-52 rounded-xl bottom-0 right-0'>
-                        <img src={item.img} alt="" className='h-full w-full object-contain'/>
-                      </div>
-                    </div>
-                  </div>
-                ))
-              }
-            </div>
-          </div>
 
-          
-
-          <div className='flex flex-col w-full px-6 my-10' id='howitwork'>
-            <div className='flex w-full flex-col md:flex-row items-start md:justify-between md:items-center mb-5'>
-              <p className='text-2xl sm:text-3xl font-titanOne mb-3 md:mb-0'>¿Cómo funciona?</p>
-              <p className='text-xs text-start md:text-end max-w-full md:max-w-60'>Explicaremos cada una e la características de Zoobook.</p>
-            </div>
-            <div className='flex flex-col sm:grid sm:grid-cols-2 gap-5'>
-              <div className='flex h-auto w-full justify-center items-start p-5'>
-                <Image
-                  src="https://i.imgur.com/tSSFQFd.png" 
-                  alt="NextUI Album Cover"
-                  className="h-20 min-w-20 max-w-20 object-contain rounded-full border-2 border-primary"
-                />
-                <div className='ml-5'>
-                  <p className='text-lg font-bold mb-5'>Red Social</p>
-                    <ul className='text-small text-gray-400 list-disc ml-3'>
-                      <li>Puedes seleccionar una foto desde tu dispositivo para subir.</li>
-                      <li>Añade un título y descripción</li>
-                      <li>Descubre fotos recientes y populares</li>
-                      <li>Mientras exploras, puedes dar 'Me gusta' a las fotos que encuentres interesantes</li>
-                    </ul>
-                </div>
-              </div>
-              <div className='flex h-auto w-full justify-center items-start p-5'>
-                <Image
-                  src="https://i.imgur.com/reYCfUK.png" 
-                  alt="NextUI Album Cover"
-                  className="h-20 min-w-20 max-w-20 object-contain rounded-full border-2 border-primary"
-                />
-                <div className='ml-5'>
-                  <p className='text-lg font-bold mb-5'>Sistema de escaneo</p>
-                  <p className='text-medium text-gray-400'>Puedes sacar fotos subirlar ycomo tambien puedes ver mas</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div> */}
     </div>
   )
 }

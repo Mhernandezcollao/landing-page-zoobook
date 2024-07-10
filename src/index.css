@@ -26,9 +26,9 @@ div[id] {
 .hover-link {
     display: inline-block;
     position: relative;
-    color: #000;
-    font-weight: 800;
+    color: rgba(0, 0, 0, .5);
     font-family: Lexend;
+    font-size: 14px;
     text-decoration: none;
 }
 .hover-link:hover {
@@ -141,7 +141,7 @@ div[id] {
     background-position: center;
 }
 .parallax-img4 {
-    background-image: url('https://i.imgur.com/lyb4OMG.jpg');
+    background-image: url('https://i.imgur.com/UY2MnAa.jpg');
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
